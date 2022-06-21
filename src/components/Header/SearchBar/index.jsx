@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 
 import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
 
+import Button from '../../../common/components/Button';
+
 import './style.scss';
 
 function Component() {
@@ -27,7 +29,7 @@ function Component() {
   return (
     <div className="searchBar">
       <input ref={inputRef} type="search" onKeyDown={onKeyDown} />
-      <button type="button" onClick={handleSearch}>Search</button>
+      <Button onClick={() => handleSearch()} text="Search" />
     </div>
   );
 }

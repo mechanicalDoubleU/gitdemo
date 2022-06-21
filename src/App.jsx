@@ -3,6 +3,9 @@ import { UIRouter, UIView, pushStateLocationPlugin } from '@uirouter/react';
 
 import { RepositorySearch, AuthorProfile, Header } from './components';
 
+import './reset.scss';
+import './style.scss';
+
 const routingStates = [
   {
     name: 'search',

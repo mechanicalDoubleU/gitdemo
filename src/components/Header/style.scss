@@ -1,0 +1,7 @@
+@use "/src/common/styles/variables" as vars;
+
+.header{
+  color: white;
+  padding: 4px;
+  background-color: vars.$c_blue_1;
+}
