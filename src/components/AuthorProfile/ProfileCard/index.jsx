@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { AuthorProfileType, AuthorProfileDefaults } from '../types';
+
 import './style.scss';
 
 function Component({ data }) {
@@ -15,5 +17,13 @@ function Component({ data }) {
     </article>
   );
 }
+
+Component.defaultProps = {
+  data: AuthorProfileDefaults,
+};
+
+Component.propTypes = {
+  data: AuthorProfileType,
+};
 
 export default Component;

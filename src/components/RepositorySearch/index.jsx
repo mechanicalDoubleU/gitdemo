@@ -39,12 +39,19 @@ function formPagination(data, page, perPage) {
       || index === paginationConstruct.last
       || (index >= paginationConstruct.clusterStart && index < paginationConstruct.clusterEnd)
     ) {
-      pagination[index * 2] = { page: index, key: index * 2 };
+      pagination[index * 2] = {
+        page: index,
+        key: `${index * 2}`,
+      };
       if (index === page) {
         pagination[index * 2].current = true;
       }
       if (!pagination[(index - 1) * 2] && index !== 1) {
-        pagination[index * 2 - 1] = { page: null, elipsis: true, key: index * 2 - 1 };
+        pagination[index * 2 - 1] = {
+          page: null,
+          ellipsis: true,
+          key: `${index * 2}` - 1,
+        };
       }
     }
   }
@@ -53,7 +60,7 @@ function formPagination(data, page, perPage) {
     pagination[0] = {
       page: paginationConstruct.current - 1,
       sequential: '←',
-      key: 0,
+      key: '-1',
     };
   }
 
@@ -61,15 +68,36 @@ function formPagination(data, page, perPage) {
     pagination[paginationConstruct.last * 2] = {
       page: 1 + paginationConstruct.current,
       sequential: '→',
-      key: totalPages,
+      key: `${totalPages}${1}`,
     };
   }
 
-  return Object.entries(pagination).sort((a, b) => a[0] - b[0]).map((item) => item[1]);
+  return Object.entries(pagination)
+    .sort((a, b) => a[0] - b[0])
+    .map((item) => (
+      {
+        page: item[1]?.page,
+        key: `${item[1].key}`,
+        sequential: item[1]?.sequential,
+        ellipsis: !!item[1]?.ellipsis,
+        current: !!item[1]?.current,
+      }
+    ));
 }
 
 function formProjectList(data) {
-  return data.items;
+  if (!data?.items) {
+    return [];
+  }
+
+  return data.items.map((item) => ({
+    full_name: item?.full_name,
+    language: item?.language,
+    stargazers_count: item?.stargazers_count,
+    owner: {
+      login: item?.owner?.login,
+    },
+  }));
 }
 
 function Component() {

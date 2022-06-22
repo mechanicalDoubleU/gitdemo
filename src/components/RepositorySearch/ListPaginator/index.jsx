@@ -1,7 +1,13 @@
 import React from 'react';
-import PropTypes, { oneOf } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import PaginationElement from './PaginationElement';
+
+import {
+  RepositorySearchQueryType,
+  RepositorySearchQueryDefaults,
+  PaginationElementType,
+} from '../types';
 
 import './style.scss';
 
@@ -21,25 +27,15 @@ function Component({ pagination, params }) {
   );
 }
 
-// Component.defaultProps = {
-//   pagination: [],
-//   params: {},
-// };
+Component.defaultProps = {
+  params: RepositorySearchQueryDefaults,
+};
 
-// Component.propTypes = {
-//   pagination: PropTypes.isRequired.arrayOf(
-//     PropTypes.shape({
-//       key: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
-//       elipsis: PropTypes.bool,
-//       page: PropTypes.number,
-//       current: PropTypes.bool,
-//       sequential: PropTypes.string,
-//     }),
-//   ),
-//   params: PropTypes.isRequired.shape({
-//     p: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
-//     q: PropTypes.string,
-//   }),
-// };
+Component.propTypes = {
+  pagination: PropTypes.arrayOf(
+    PaginationElementType,
+  ).isRequired,
+  params: RepositorySearchQueryType,
+};
 
 export default Component;

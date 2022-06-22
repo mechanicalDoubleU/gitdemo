@@ -7,7 +7,7 @@ import Button from '../../../common/components/Button';
 import './style.scss';
 
 function Component() {
-  const { state, params } = useCurrentStateAndParams();
+  const { params } = useCurrentStateAndParams();
   const router = useRouter();
   const inputRef = useRef(null);
 

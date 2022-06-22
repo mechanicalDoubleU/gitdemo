@@ -1,7 +1,7 @@
 import React from 'react';
 import { UIRouter, UIView, pushStateLocationPlugin } from '@uirouter/react';
 
-import { RepositorySearch, AuthorProfile } from './components';
+import { RepositorySearch, AuthorProfile, Notfound } from './components';
 
 import 'the-new-css-reset/css/reset.css';
 import './style.scss';
@@ -18,6 +18,11 @@ const routingStates = [
     url: '/profile/:name',
     component: AuthorProfile,
     dynamic: true,
+  },
+  {
+    name: 'notfound',
+    url: '**',
+    component: Notfound,
   },
 ];
 

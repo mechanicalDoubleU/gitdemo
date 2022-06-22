@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useSref } from '@uirouter/react';
+
+import { RepositoryType, RepositoryDefault } from '../../types';
 import './style.scss';
 
 function Component({ data }) {
@@ -16,5 +18,13 @@ function Component({ data }) {
     </article>
   );
 }
+
+Component.defaultProps = {
+  data: RepositoryDefault,
+};
+
+Component.propTypes = {
+  data: RepositoryType,
+};
 
 export default Component;

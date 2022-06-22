@@ -19,7 +19,16 @@ function Component() {
       return;
     }
     setProfileState(API_STATES.LOADED);
-    setProfile(data);
+
+    const profileData = {
+      avatar_url: data?.avatar_url,
+      name: data?.name,
+      login: data?.login,
+      bio: data?.bio,
+      html_url: data?.html_url,
+    };
+
+    setProfile(profileData);
   }
 
   useEffect(() => {
