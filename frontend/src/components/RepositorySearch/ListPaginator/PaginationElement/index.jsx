@@ -14,8 +14,8 @@ import './style.scss';
 
 function Component({ data, params }) {
   const sref = useSref('search', {
-    q: params.q,
-    p: data.page,
+    query: params.query,
+    page: data.page,
   });
 
   function characterSelect(_data) {

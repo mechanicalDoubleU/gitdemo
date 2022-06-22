@@ -1,32 +1,21 @@
-const webpack = require('webpack');
-const webpackConfigProd = require('./webpack.production');
+const gulp = require("gulp");
+const gulpclean = require("gulp-clean");
 
-function defaultTask(cb) {
-  cb();
+function move_to_server(cb) {
+  return gulp.src("frontend/dist/**/*").pipe(gulp.dest("backend/dist/**/*"));
 }
 
-function build() {
-  return new Promise((resolve, reject) => {
-    webpack(
-      webpackConfigProd,
-      // eslint-disable-next-line consistent-return
-      (err, stats) => {
-        if (err) {
-          return reject(err);
-        }
-
-        if (stats.hasErrors()) {
-          return reject(
-            new Error(
-              stats.compilation.errors.join('\n'),
-            ),
-          );
-        }
-        resolve();
-      },
-    );
-  });
+function clean_front() {
+  return gulp.src("frontend/dist/**/*", { read: true }).pipe(gulpclean());
 }
 
-exports.build = build;
-exports.default = defaultTask;
+function clean_back() {
+  return gulp.src("backend/dist/**/*", { read: true }).pipe(gulpclean());
+}
+
+function clean(cb) {
+  return gulp.parallel([clean_back, clean_front]);
+}
+
+exports.move_to_server = move_to_server;
+exports.clean = clean;

@@ -1,51 +1,33 @@
 {
   "name": "gitdemo",
   "version": "1.0.0",
-  "description": "Your github looking glass",
+  "description": "",
   "main": "index.js",
-  "author": "mechanicalDoubleU",
-  "license": "MIT",
   "scripts": {
-    "start": "webpack serve --mode development --config ./webpack.development.js",
-    "build": "webpack build --mode production --config ./webpack.production.js",
-    "test": "echo 'no test`",
-    "build:gulp": "gulp build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install_all": "yarn install && yarn --cwd ./frontend install && yarn --cwd ./backend",
+    "build_all": "yarn --cwd ./frontend build",
+    "build_all_dev": "yarn --cwd ./frontend build:dev",
+    "build:server": "yarn run build_all && gulp move_to_server",
+    "build:server:dev": "yarn run build_all_dev && gulp move_to_server",
+    "devserver": "yarn --cwd ./frontend start",
+    "build:server:run": "yarn run build:server && yarn --cwd ./backend start",
+    "build:server:run:dev": "yarn run build:server:dev && yarn --cwd ./backend start"
   },
-  "devDependencies": {
-    "@babel/cli": "^7.17.10",
-    "@babel/core": "^7.18.5",
-    "@babel/preset-env": "^7.18.2",
-    "@babel/preset-react": "^7.17.12",
-    "babel-loader": "^8.2.5",
-    "css-loader": "^6.7.1",
-    "css-minimizer-webpack-plugin": "^4.0.0",
-    "eslint": "^7.32.0 || ^8.2.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-webpack-plugin": "^3.1.1",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0",
-    "html-loader": "^3.1.2",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.6.1",
-    "sass": "^1.52.3",
-    "sass-loader": "^13.0.0",
-    "style-loader": "^3.3.1",
-    "ts-loader": "^9.3.0",
-    "typescript": "^4.7.3",
-    "webpack": "^5.73.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.9.2"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mechanicalDoubleU/gitdemo.git"
   },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mechanicalDoubleU/gitdemo/issues"
+  },
+  "homepage": "https://github.com/mechanicalDoubleU/gitdemo#readme",
   "dependencies": {
-    "@uirouter/react": "^1.0.7",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "the-new-css-reset": "^1.6.1",
-    "webpack-merge": "^5.8.0"
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.3.0",
+    "yarn": "^1.22.19"
   }
 }

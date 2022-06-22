@@ -8,14 +8,20 @@ import './style.scss';
 
 const routingStates = [
   {
-    name: 'search',
-    url: '/?q&p',
+    name: 'home',
+    url: '/?query&page',
     component: RepositorySearch,
     dynamic: true,
   },
   {
-    name: 'profile',
-    url: '/profile/:name',
+    name: 'search',
+    url: '/search?query&page',
+    component: RepositorySearch,
+    dynamic: true,
+  },
+  {
+    name: 'author',
+    url: '/author?authorName',
     component: AuthorProfile,
     dynamic: true,
   },
@@ -30,7 +36,10 @@ const plugins = [pushStateLocationPlugin];
 
 function Component() {
   return (
-    <UIRouter plugins={plugins} states={routingStates}>
+    <UIRouter
+      plugins={plugins}
+      states={routingStates}
+    >
       <main className="main">
         <UIView />
       </main>

@@ -6,7 +6,7 @@ import { RepositoryType, RepositoryDefault } from '../../types';
 import './style.scss';
 
 function Component({ data }) {
-  const sref = useSref('profile', { name: data.owner.login });
+  const sref = useSref('author', { authorName: data.owner.login });
   return (
     <article className="repositoryCard">
       <a {...sref} className="repositoryCard_container">

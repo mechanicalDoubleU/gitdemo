@@ -5,7 +5,7 @@ import ProfileCard from './ProfileCard';
 import Button from '../../common/components/Button';
 import Spinner, { SPINNER_MODE } from '../../common/components/Spinner';
 import Plaque from '../../common/components/Plaque';
-import authorProfile from '../../common/api/authorProfile';
+import fetchAuthorProfile from '../../common/api/authorProfile';
 import { API_STATES } from '../../common/constants/enums';
 
 import './style.scss';
@@ -34,12 +34,12 @@ function Component() {
   }
 
   useEffect(() => {
-    if (params.name) {
-      setProfileState(API_STATES.LOADED);
-      authorProfile(params.name)
+    if (params.authorName) {
+      setProfileState(API_STATES.LOADING);
+      fetchAuthorProfile(params.authorName)
         .then((result) => handleProfile(result));
     }
-  }, [params.name]);
+  }, [params.authorName]);
 
   return (
     <section className="authorProfile">

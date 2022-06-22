@@ -7,7 +7,7 @@ import ListPaginator from './ListPaginator';
 import Spinner, { SPINNER_MODE } from '../../common/components/Spinner';
 import Plaque from '../../common/components/Plaque';
 
-import projectSearch from '../../common/api/projectSearch';
+import fetchProjectSearch from '../../common/api/projectSearch';
 
 import { API_STATES } from '../../common/constants/enums';
 
@@ -99,6 +99,7 @@ function formProjectList(data) {
     owner: {
       login: item?.owner?.login,
     },
+    id: item.id,
   }));
 }
 
@@ -120,25 +121,17 @@ function Component() {
       setSearchState(API_STATES.LOADED);
     }
 
-    setPagination(() => formPagination(result, parseInt(params.p, 10), PER_PAGE));
+    setPagination(() => formPagination(result, parseInt(params.page, 10), PER_PAGE));
     setProjects(() => formProjectList(result));
   }
 
   useEffect(() => {
-    if (params.q && (params.p || params.p === 0)) {
+    if (params.query && (params.page || params.page === 0)) {
       setSearchState(API_STATES.LOADING);
-      projectSearch(params.q, params.p, PER_PAGE)
+      fetchProjectSearch(params.query, params.page, PER_PAGE)
         .then((result) => handleSearchResult(result));
     }
-  }, [params.q]);
-
-  useEffect(() => {
-    if (params.q && (params.p || params.p === 0)) {
-      setSearchState(API_STATES.UPDATING);
-      projectSearch(params.q, params.p, PER_PAGE)
-        .then((result) => handleSearchResult(result));
-    }
-  }, [params.p]);
+  }, [params.query, params.page]);
 
   return (
     <section className="repositorySearch">

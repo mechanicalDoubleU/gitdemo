@@ -8,7 +8,7 @@ import { RepositoryType } from '../types';
 function Component({ list }) {
   return (
     <div className="repositoryList">
-      {list.map((item) => <RepositoryCard key={item.id} data={item} />)}
+      {list.map((item) => <RepositoryCard key={`${item.id}`} data={item} />)}
     </div>
   );
 }

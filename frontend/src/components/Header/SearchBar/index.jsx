@@ -12,12 +12,12 @@ function Component() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    inputRef.current.value = params.q || '';
-  }, [params.q]);
+    inputRef.current.value = params.query || '';
+  }, [params.query]);
 
   function handleSearch() {
     const query = inputRef.current.value;
-    router.stateService.go('search', { q: query, p: 1 }, { notify: false });
+    router.stateService.go('search', { query, page: 1 }, { notify: false });
   }
 
   function onKeyDown(e) {

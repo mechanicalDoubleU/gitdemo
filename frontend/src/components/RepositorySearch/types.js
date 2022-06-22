@@ -7,6 +7,7 @@ const RepositoryType = PropTypes.shape({
   owner: PropTypes.shape({
     login: PropTypes.string,
   }),
+  id: PropTypes.oneOf([PropTypes.string, PropTypes.number]).isRequired,
 });
 
 const RepositoryDefault = {
@@ -32,13 +33,13 @@ const PaginationElementDefault = {
 };
 
 const RepositorySearchQueryType = PropTypes.shape({
-  q: PropTypes.string,
-  p: PropTypes.string,
+  query: PropTypes.string,
+  page: PropTypes.string,
 });
 
 const RepositorySearchQueryDefaults = {
-  q: undefined,
-  p: undefined,
+  query: undefined,
+  page: undefined,
 };
 
 export {
