@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install_all": "yarn install && yarn --cwd ./frontend install && yarn --cwd ./backend",
-    "build_all": "yarn --cwd ./frontend build",
-    "build_all_dev": "yarn --cwd ./frontend build:dev",
+    "install_all": "npm install && yarn --cwd ./frontend install && yarn --cwd ./backend",
+    "build": "yarn --cwd ./frontend build",
+    "build:dev": "yarn --cwd ./frontend build:dev",
     "build:server": "yarn run build_all && gulp move_to_server",
     "build:server:dev": "yarn run build_all_dev && gulp move_to_server",
     "devserver": "yarn --cwd ./frontend start",
     "build:server:run": "yarn run build:server && yarn --cwd ./backend start",
-    "build:server:run:dev": "yarn run build:server:dev && yarn --cwd ./backend start"
+    "build:server:run:dev": "yarn run build:server:dev && yarn --cwd ./backend start",
+    "clean": "gulp clean"
   },
   "repository": {
     "type": "git",

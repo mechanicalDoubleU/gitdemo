@@ -27,3 +27,7 @@ yarn run build:gulp:dev
 ## test
 
 yarn run test
+
+## clean
+
+yarn run clean

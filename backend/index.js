@@ -6,8 +6,16 @@ const port = process.env.PORT || 8000;
 
 app.use(express.static(__dirname + "/dist"));
 
+app.get("*.css", function (req, res) {
+  res.sendFile(path.resolve(__dirname, req.url));
+});
+
+app.get("*.js", function (req, res) {
+  res.sendFile(path.resolve(__dirname, req.url));
+});
+
 app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "index.html"));
+  res.sendFile(path.resolve(__dirname, "/dist/index.html"));
 });
 
 app.listen(port);

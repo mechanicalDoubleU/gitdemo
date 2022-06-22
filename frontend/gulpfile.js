@@ -38,7 +38,7 @@ function build_dev() {
 
 function clean() {
   return gulp
-    .src('dist/**/*', { read: true })
+    .src('dist', { read: true })
     .pipe(gulpclean());
 }
 

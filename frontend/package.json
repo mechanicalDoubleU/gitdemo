@@ -11,7 +11,8 @@
     "build:dev": "webpack build --mode development --config ./webpack.development.js",
     "test": "echo 'no test`",
     "build:gulp": "gulp build",
-    "build:gulp:dev": "gulp build_dev"
+    "build:gulp:dev": "gulp build_dev",
+    "clean": "gulp clean"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
