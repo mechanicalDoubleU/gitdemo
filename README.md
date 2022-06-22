@@ -1,6 +1,6 @@
 # gitdemo
 
-## install
+## install dependencies
 
 yarn install
 
@@ -11,6 +11,10 @@ yarn run start
 ## build
 
 yarn run build
+
+## build, but gulp task
+
+yarn run build:gulp
 
 ## test
 
