@@ -1,17 +1,24 @@
 @use "/src/common/styles/variables.scss" as vars;
 
 .paginationElement{
-  width: 34px;
-  height: 24px;
-  background-color: vars.$c-blue-1;
+  width: 40px;
+  height: 30px;
+  background-color: vars.$c_blue_1;
   border-radius: 4px;
   color: white;
-  margin: 8px;
+  margin: 4px;
   text-align: center;
   font-size: 1.2em;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover{
+    outline: 3px solid vars.$c_blue_2;
+  }
 
   &.current{
-    background-color: vars.$c-blue-2;
+    background-color: vars.$c_blue_2;
   }
 }

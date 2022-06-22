@@ -104,18 +104,23 @@ function Component() {
   const { params } = useCurrentStateAndParams();
   const [projects, setProjects] = useState([]);
   const [pagination, setPagination] = useState([]);
-  const [searchState, setSearchState] = useState(API_STATES.EMPTY);
+  const [searchState, setSearchState] = useState(API_STATES.NOTLOADED);
 
   function handleSearchResult(result) {
     if (result === null || result === undefined) {
       setSearchState(API_STATES.ERROR);
       return;
     }
-    setSearchState(API_STATES.LOADED);
+
+    if (result.items.length === 0) {
+      setSearchState(API_STATES.EMPTY);
+    } else {
+      setSearchState(API_STATES.LOADED);
+    }
 
     setPagination(() => formPagination(result, parseInt(params.p, 10), PER_PAGE));
     setProjects(() => formProjectList(result));
-  } // TODO: memoize stuff
+  }
 
   useEffect(() => {
     if (params.q && (params.p || params.p === 0)) {
@@ -144,7 +149,11 @@ function Component() {
         </>
         )}
         {
-        searchState === API_STATES.EMPTY
+          searchState === API_STATES.EMPTY
+          && <div>Nothing was found. Please, try different search.</div>
+        }
+        {
+        searchState === API_STATES.NOTLOADED
         && <div>Search for projects on GitHub</div>
       }
         {

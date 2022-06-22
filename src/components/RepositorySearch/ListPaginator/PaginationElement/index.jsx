@@ -34,7 +34,7 @@ function Component({ data, params }) {
 
   return (
     <a {...(data.page !== undefined ? sref : { href: '#' })} className={`paginationElement ${data.current ? 'current' : ''}`}>
-      {characterSelect(data)}
+      <div>{characterSelect(data)}</div>
     </a>
   );
 }

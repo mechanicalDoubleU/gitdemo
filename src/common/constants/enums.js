@@ -4,6 +4,7 @@ const API_STATES = {
   LOADED: 2,
   EMPTY: 3,
   UPDATING: 4,
+  NOTLOADED: 5,
 };
 
 const API_STATES_RVSR = {
@@ -12,6 +13,7 @@ const API_STATES_RVSR = {
   2: 'LOADED',
   3: 'EMPTY',
   4: 'UPDATING',
+  5: 'NOTLOADED',
 };
 
 export { API_STATES, API_STATES_RVSR };
