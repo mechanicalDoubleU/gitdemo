@@ -4,6 +4,8 @@ import { useCurrentStateAndParams } from '@uirouter/react';
 import Header from '../Header';
 import RepositoryList from './RepositoryList';
 import ListPaginator from './ListPaginator';
+import Spinner, { SPINNER_MODE } from '../../common/components/Spinner';
+import Plaque from '../../common/components/Plaque';
 
 import projectSearch from '../../common/api/projectSearch';
 
@@ -149,20 +151,25 @@ function Component() {
         </>
         )}
         {
+          (searchState === API_STATES.LOADING || searchState === API_STATES.UPDATING) && (
+            <Spinner mode={SPINNER_MODE.ABSOLUTE} />
+          )
+        }
+        {
           searchState === API_STATES.EMPTY
-          && <div>Nothing was found. Please, try different search.</div>
+          && <Plaque text="Nothing was found. Please, try different search." />
         }
         {
         searchState === API_STATES.NOTLOADED
-        && <div>Search for projects on GitHub</div>
+        && <Plaque text="Search for projects on GitHub" />
       }
         {
         searchState === API_STATES.ERROR
-        && <div>Search error occurred. Please, try again.</div>
+        && <Plaque text="Search error occurred. Please, try again." />
       }
         {
         searchState === API_STATES.LOADING
-        && <div>Searching...</div>
+        && <Plaque text="Searching..." />
       }
       </div>
     </section>

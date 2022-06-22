@@ -1,9 +1,12 @@
-#root{
+#root {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  font-family: "ui-monospace", "SFMono-Regular", "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
 }
 
-.main{
+.main {
   width: 100%;
 }

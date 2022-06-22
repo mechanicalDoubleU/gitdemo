@@ -1,0 +1,16 @@
+@use "../../styles/variables.scss" as vars;
+
+.plaque {
+  border: 4px solid vars.$c-blue-1;
+  border-radius: 4px;
+
+  background-color: white;
+  padding: 6px 4px;
+
+  word-wrap: break-word;
+  white-space: pre-line;
+
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}

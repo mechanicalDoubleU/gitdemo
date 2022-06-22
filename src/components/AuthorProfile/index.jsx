@@ -3,6 +3,8 @@ import { useCurrentStateAndParams } from '@uirouter/react';
 
 import ProfileCard from './ProfileCard';
 import Button from '../../common/components/Button';
+import Spinner, { SPINNER_MODE } from '../../common/components/Spinner';
+import Plaque from '../../common/components/Plaque';
 import authorProfile from '../../common/api/authorProfile';
 import { API_STATES } from '../../common/constants/enums';
 
@@ -53,16 +55,21 @@ function Component() {
         && <ProfileCard data={profile} />
       }
       {
+          (profileState === API_STATES.LOADING || profileState === API_STATES.UPDATING) && (
+            <Spinner mode={SPINNER_MODE.ABSOLUTE} />
+          )
+        }
+      {
         profileState === API_STATES.EMPTY
-        && <div>Quick view of GitHub user profile</div>
+        && <Plaque text="Quick view of GitHub user profile" />
       }
       {
         profileState === API_STATES.ERROR
-        && <div>Profile load error occurred. Please, try again.</div>
+        && <Plaque text="Profile load error occurred. Please, try again." />
       }
       {
         profileState === API_STATES.LOADING
-        && <div>Loading profile...</div>
+        && <Plaque text="Loading profile..." />
       }
     </section>
   );
