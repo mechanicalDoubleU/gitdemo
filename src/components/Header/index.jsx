@@ -9,10 +9,12 @@ function Component() {
   const repositorySearchSref = useSrefActive('search', null, 'active');
 
   return (
-    <nav className="header">
-      <a {...repositorySearchSref}>Home</a>
+    <div className="header">
+      <nav className="header_nav">
+        <a {...repositorySearchSref}>Home</a>
+      </nav>
       <SearchBar />
-    </nav>
+    </div>
   );
 }
 

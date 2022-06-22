@@ -1,0 +1,8 @@
+@use "/src/common/styles/variables.scss" as vars;
+
+.authorProfile {
+  padding: 16px;
+  margin: 16px;
+  border-radius: 8px;
+  background-color: vars.$c_blue_1;
+}

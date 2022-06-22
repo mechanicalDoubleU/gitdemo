@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { useSrefActive } from '@uirouter/react';
+import { useSref } from '@uirouter/react';
 
 import './style.scss';
 
 function Component({ data, params }) {
-  const sref = useSrefActive('search', {
+  const sref = useSref('search', {
     q: params.q,
     p: data.page,
-  },null, 'active');
+  });
 
   function characterSelect(_data) {
     if (_data.elipsis) {
@@ -20,10 +20,12 @@ function Component({ data, params }) {
     if (_data.page) {
       return `${_data.page}`;
     }
+
+    return null;
   }
 
   return (
-    <a {...(data.page !== undefined ? sref : {})} className="paginationElement">
+    <a {...(data.page !== undefined ? sref : {href: "#"})} className={`paginationElement ${data.current ? 'current' : ''}`}>
       {characterSelect(data)}
     </a>
   );

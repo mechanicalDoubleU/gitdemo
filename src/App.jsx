@@ -1,9 +1,9 @@
 import React from 'react';
 import { UIRouter, UIView, pushStateLocationPlugin } from '@uirouter/react';
 
-import { RepositorySearch, AuthorProfile, Header } from './components';
+import { RepositorySearch, AuthorProfile } from './components';
 
-import './reset.scss';
+import 'the-new-css-reset/css/reset.css';
 import './style.scss';
 
 const routingStates = [
@@ -11,11 +11,13 @@ const routingStates = [
     name: 'search',
     url: '/?q&p',
     component: RepositorySearch,
+    dynamic: true,
   },
   {
     name: 'profile',
     url: '/profile/:name',
     component: AuthorProfile,
+    dynamic: true,
   },
 ];
 
@@ -25,7 +27,6 @@ function Component() {
   return (
     <UIRouter plugins={plugins} states={routingStates}>
       <main className="main">
-        <Header />
         <UIView />
       </main>
     </UIRouter>

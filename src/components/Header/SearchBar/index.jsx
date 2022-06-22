@@ -17,7 +17,7 @@ function Component() {
 
   function handleSearch() {
     const query = inputRef.current.value;
-    router.stateService.go('search', { q: query, p: 1 });
+    router.stateService.go('search', { q: query, p: 1 }, { notify: false });
   }
 
   function onKeyDown(e) {
@@ -28,8 +28,8 @@ function Component() {
 
   return (
     <div className="searchBar">
-      <input ref={inputRef} type="search" onKeyDown={onKeyDown} />
-      <Button onClick={() => handleSearch()} text="Search" />
+      <input ref={inputRef} type="search" onKeyDown={onKeyDown} className="searchBar_input" />
+      <Button onClick={() => handleSearch()} text="Search" className="searchBar_button" />
     </div>
   );
 }

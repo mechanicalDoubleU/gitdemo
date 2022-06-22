@@ -6,7 +6,7 @@ import './style.scss';
 
 function Component({ list }) {
   return (
-    <div className="projectList">
+    <div className="repositoryList">
       {list.map((item) => <RepositoryCard key={item.id} data={item} />)}
     </div>
   );

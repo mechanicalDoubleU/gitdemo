@@ -1,0 +1,21 @@
+
+
+.searchBar{
+  padding: 4px 0px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.searchBar_input{
+  flex-grow: 2;
+  border-radius: 4px;
+  background-color: white;
+  margin: 4px;
+  color: black;
+  padding: 0 4px;
+}
+
+.searchBar_button{
+  flex-shrink: 0;
+  margin: 4px;
+}

@@ -1,0 +1,14 @@
+@use "/src/common/styles/variables.scss" as vars;
+@use "sass:color";
+
+.button_primary {
+  border-radius: 4px;
+  padding: 4px 6px;
+  background-color: vars.$c_blue_1;
+  transition: background-color linear vars.$time_transition_std;
+
+  &:active,
+  &:hover {
+    background-color: color.adjust(vars.$c_blue_1, $lightness: -10%);
+  }
+}

@@ -1,7 +1,19 @@
 @use "/src/common/styles/variables" as vars;
 
-.header{
+.header {
   color: white;
-  padding: 4px;
+  padding: 4px 16px 8px 16px;
   background-color: vars.$c_blue_1;
+}
+
+.header_nav {
+  margin-bottom: 8px;
+  
+  a {
+    font-size: 1.4em;
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
 }

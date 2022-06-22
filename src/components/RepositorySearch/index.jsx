@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCurrentStateAndParams } from '@uirouter/react';
 
+import Header from '../Header';
 import RepositoryList from './RepositoryList';
 import ListPaginator from './ListPaginator';
 
@@ -94,28 +95,39 @@ function Component() {
       projectSearch(params.q, params.p, PER_PAGE)
         .then((result) => handleSearchResult(result));
     }
-  }, [params]);
+  }, [params.q]);
+
+  useEffect(() => {
+    if (params.q && (params.p || params.p === 0)) {
+      setSearchState(API_STATES.UPDATING);
+      projectSearch(params.q, params.p, PER_PAGE)
+        .then((result) => handleSearchResult(result));
+    }
+  }, [params.p]);
 
   return (
-    <section className="projectSearch">
-      {searchState === API_STATES.LOADED && (
-      <>
-        <RepositoryList list={projects} />
-        <ListPaginator pagination={pagination} params={params} />
-      </>
-      )}
-      {
+    <section className="repositorySearch">
+      <Header />
+      <div className="repositorySearch_content">
+        {(searchState === API_STATES.LOADED || searchState === API_STATES.UPDATING) && (
+        <>
+          <RepositoryList list={projects} />
+          <ListPaginator pagination={pagination} params={params} />
+        </>
+        )}
+        {
         searchState === API_STATES.EMPTY
         && <div>Search for projects on GitHub</div>
       }
-      {
+        {
         searchState === API_STATES.ERROR
         && <div>Search error occurred. Please, try again.</div>
       }
-      {
+        {
         searchState === API_STATES.LOADING
         && <div>Searching...</div>
       }
+      </div>
     </section>
   );
 }

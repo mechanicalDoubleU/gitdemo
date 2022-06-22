@@ -1,0 +1,9 @@
+.repositoryList {
+
+  display: grid;
+  gap: 16px 16px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-rows: repeat(auto-fit, 1fr);
+  justify-content: center;
+  align-content: center;
+}

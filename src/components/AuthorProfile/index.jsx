@@ -30,7 +30,7 @@ function Component() {
     }
   }, [params.name]);
   return (
-    <section>
+    <section className="authorProfile">
       {
         profileState === API_STATES.LOADED
         && <ProfileCard data={profile} />

@@ -1,0 +1,27 @@
+.profileCard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.profileCard_avatar {
+  margin: 8px;
+  max-width: 300px;
+  min-width: 200px;
+}
+
+.profileCard_info {
+  margin: 8px;
+  min-width: 200px;
+  border-radius: 8px;
+  background-color: white;
+  padding: 8px;
+}
+
+.profileCard_link {
+  border: 2px solid gray;
+  border-radius: 4px;
+  padding: 0px 2px;
+
+  align-self: flex-end;
+}
