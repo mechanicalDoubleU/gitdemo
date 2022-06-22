@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useCurrentStateAndParams } from '@uirouter/react';
 
 import ProfileCard from './ProfileCard';
-
+import Button from '../../common/components/Button';
 import authorProfile from '../../common/api/authorProfile';
 import { API_STATES } from '../../common/constants/enums';
 
@@ -38,8 +38,16 @@ function Component() {
         .then((result) => handleProfile(result));
     }
   }, [params.name]);
+
   return (
     <section className="authorProfile">
+      <Button
+        onClick={() => {
+          // eslint-disable-next-line no-restricted-globals
+          history.back();
+        }}
+        text="Back"
+      />
       {
         profileState === API_STATES.LOADED
         && <ProfileCard data={profile} />

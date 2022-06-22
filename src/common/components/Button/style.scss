@@ -4,11 +4,16 @@
 .button_primary {
   border-radius: 4px;
   padding: 4px 6px;
-  background-color: vars.$c_blue_1;
+  background-color: vars.$c_blue_2;
   transition: background-color linear vars.$time_transition_std;
-
-  &:active,
+  box-shadow: 0 -2px gray;
+  color: white;
   &:hover {
     background-color: color.adjust(vars.$c_blue_1, $lightness: -10%);
+  }
+
+  &:active {
+    transform: translate(0, -2px);
+    box-shadow: 0 0px gray;
   }
 }

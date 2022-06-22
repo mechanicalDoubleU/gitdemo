@@ -2,27 +2,76 @@
 @use "sass:color";
 
 .repositoryCard {
-  width: 160px;
-  height: 200px;
+  width: auto;
+  height: 230px;
 
   border: 4px solid vars.$c_blue_1;
   border-radius: 8px;
   background-color: white;
 
-  padding: 8px;
   display: flex;
   flex-direction: column;
-
+  align-items: stretch;
+  justify-content: stretch;
 
   color: black;
-  transition: border-color linear vars.$time_transition_std;
-  transition: background-color linear vars.$time_transition_std;
+  transition: border-color linear vars.$time_transition_std,
+    background-color linear vars.$time_transition_std,
+    color linear vars.$time_transition_std;
 
   cursor: pointer;
 
-  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: pre-line;
+  overflow: hidden;
+  background-color: vars.$c_blue_1;
 
   &:hover {
+    border-color: color.adjust(vars.$c_blue_1, $lightness: -10%);
     background-color: color.adjust(vars.$c_blue_1, $lightness: 20%);
+    & .repositoryCard_desc {
+      color: black;
+    }
   }
+
+  &:active {
+    transform: translate(0, -8px);
+    box-shadow: 0 8px gray;
+  }
+}
+
+.repositoryCard_container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.repositoryCard_desc {
+  padding: 8px;
+  flex-grow: 1;
+  color: white;
+}
+
+.repositoryCard_stats {
+  padding: 8px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.repositoryCard_name {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.repositoryCard_author {
+}
+
+.repositoryCard_stars {
+}
+
+.repositoryCard_language {
 }

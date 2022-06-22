@@ -59,7 +59,7 @@ function formPagination(data, page, perPage) {
   if (paginationConstruct.current !== 1) {
     pagination[0] = {
       page: paginationConstruct.current - 1,
-      sequential: '←',
+      sequential: 'prev',
       key: '-1',
     };
   }
@@ -67,7 +67,7 @@ function formPagination(data, page, perPage) {
   if (paginationConstruct.current !== totalPages) {
     pagination[paginationConstruct.last * 2] = {
       page: 1 + paginationConstruct.current,
-      sequential: '→',
+      sequential: 'next',
       key: `${totalPages}${1}`,
     };
   }

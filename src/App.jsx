@@ -21,7 +21,7 @@ const routingStates = [
   },
   {
     name: 'notfound',
-    url: '**',
+    url: '/**',
     component: Notfound,
   },
 ];

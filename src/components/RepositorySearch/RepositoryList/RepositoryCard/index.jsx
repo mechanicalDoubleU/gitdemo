@@ -9,11 +9,15 @@ function Component({ data }) {
   const sref = useSref('profile', { name: data.owner.login });
   return (
     <article className="repositoryCard">
-      <a {...sref}>
-        <div>{data.full_name}</div>
-        <div>{data.owner.login}</div>
-        <div>{data.language}</div>
-        <div>{`⭐ ${data.stargazers_count}`}</div>
+      <a {...sref} className="repositoryCard_container">
+        <div className="repositoryCard_desc">
+          <div className="repositoryCard_name">{data.full_name}</div>
+          <div className="repositoryCard_author">{`by: ${data.owner.login}`}</div>
+        </div>
+        <div className="repositoryCard_stats">
+          <div className="repositoryCard_language">{data.language}</div>
+          <div className="repositoryCard_stars">{`⭐ ${data.stargazers_count}`}</div>
+        </div>
       </a>
     </article>
   );
