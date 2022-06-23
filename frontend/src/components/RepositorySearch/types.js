@@ -7,7 +7,7 @@ const RepositoryType = PropTypes.shape({
   owner: PropTypes.shape({
     login: PropTypes.string,
   }),
-  id: PropTypes.oneOf([PropTypes.string, PropTypes.number]).isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 });
 
 const RepositoryDefault = {

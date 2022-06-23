@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useCurrentStateAndParams } from '@uirouter/react';
-
+import PropTypes from 'prop-types';
 import ProfileCard from './ProfileCard';
 import Button from '../../common/components/Button';
 import Spinner, { SPINNER_MODE } from '../../common/components/Spinner';
 import Plaque from '../../common/components/Plaque';
 import fetchAuthorProfile from '../../common/api/authorProfile';
 import { API_STATES } from '../../common/constants/enums';
-
+import transitionBack from '../../common/utils/uirouterback';
 import './style.scss';
 
-function Component() {
+function Component({ transition }) {
   const { params } = useCurrentStateAndParams();
   const [profile, setProfile] = useState(null);
   const [profileState, setProfileState] = useState(API_STATES.EMPTY);
@@ -45,8 +45,7 @@ function Component() {
     <section className="authorProfile">
       <Button
         onClick={() => {
-          // eslint-disable-next-line no-restricted-globals
-          history.back();
+          transitionBack(transition);
         }}
         text="Back"
       />
@@ -74,5 +73,14 @@ function Component() {
     </section>
   );
 }
+
+Component.defaultProps = {
+  transition: undefined,
+};
+
+Component.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  transition: PropTypes.any,
+};
 
 export default Component;

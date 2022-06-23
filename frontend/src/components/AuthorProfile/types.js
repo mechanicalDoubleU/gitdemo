@@ -4,8 +4,8 @@ const AuthorProfileType = PropTypes.shape({
   avatar_url: PropTypes.string,
   name: PropTypes.string,
   login: PropTypes.string,
-  bio: PropTypes.bio,
-  data: PropTypes.html_url,
+  bio: PropTypes.string,
+  html_url: PropTypes.string,
 });
 
 const AuthorProfileDefaults = {
