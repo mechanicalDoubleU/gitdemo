@@ -12,8 +12,8 @@
     "build:server:dev": "yarn run build:dev && gulp move_to_server",
     "devserver": "yarn --cwd ./frontend start",
     "backserver": "yarn --cwd ./backend start",
-    "build:server:run": "yarn run build:server && backserver",
-    "build:server:run:dev": "yarn run build:server:dev && backserver",
+    "build:server:run": "yarn run build:server && yarn run backserver",
+    "build:server:run:dev": "yarn run build:server:dev && yarn run backserver",
     "clean": "gulp clean"
   },
   "repository": {
