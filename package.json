@@ -8,11 +8,12 @@
     "install_all": "npm install && yarn --cwd ./frontend install && yarn --cwd ./backend",
     "build": "yarn --cwd ./frontend build",
     "build:dev": "yarn --cwd ./frontend build:dev",
-    "build:server": "yarn run build_all && gulp move_to_server",
-    "build:server:dev": "yarn run build_all_dev && gulp move_to_server",
+    "build:server": "yarn run build && gulp move_to_server",
+    "build:server:dev": "yarn run build:dev && gulp move_to_server",
     "devserver": "yarn --cwd ./frontend start",
-    "build:server:run": "yarn run build:server && yarn --cwd ./backend start",
-    "build:server:run:dev": "yarn run build:server:dev && yarn --cwd ./backend start",
+    "backserver": "yarn --cwd ./backend start",
+    "build:server:run": "yarn run build:server && backserver",
+    "build:server:run:dev": "yarn run build:server:dev && backserver",
     "clean": "gulp clean"
   },
   "repository": {

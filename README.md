@@ -1,6 +1,5 @@
 # demo git app
 
-
 ## install all deps
 
 npm run install_all
@@ -24,6 +23,10 @@ yarn run build:server:dev
 ## just run frontend dev server on port 3000
 
 yarn run devserver
+
+## just run backend server on port 8000
+
+yarn run backserver
 
 ## build and copy to server and launch server on port 8000
 
